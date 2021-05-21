@@ -1,0 +1,15 @@
+{% extends 'encyclopedia/layout.html' %}
+{% load static %}
+{% block title%}
+    {{entryTitle}}
+{% endblock %}
+
+{% block body %}
+    {% if entry %}
+        {{entry|safe}} 
+        <a href="{% url 'edit' entryTitle %}" class="btn btn-info mr-2">edit</a>  
+    {% else %}
+        <h3>Content for this page is not created yet.</h3>
+        <p>Click Here to <a href="{% url 'create' %}" class="btn btn-primary">Create</a> </p>
+    {% endif %}        
+{% endblock %}
